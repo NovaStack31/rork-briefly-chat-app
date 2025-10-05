@@ -31,12 +31,26 @@ export default function PromptsScreen() {
 
   const handlePromptPress = (prompt: PromptTile) => {
     if (prompt.requiresPro && !proEntitled) {
-      setShowPaywall(true);
+      Alert.alert(
+        'Pro Feature',
+        'This prompt requires a Pro subscription. Upgrade to unlock all prompts.',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'Upgrade', onPress: () => setShowPaywall(true) }
+        ]
+      );
       return;
     }
 
     if (!canUseFeature('prompt')) {
-      setShowPaywall(true);
+      Alert.alert(
+        'Daily Limit Reached',
+        'You\'ve reached your daily limit of 3 prompts. Upgrade to Pro for unlimited prompts.',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'Upgrade', onPress: () => setShowPaywall(true) }
+        ]
+      );
       return;
     }
 
@@ -51,9 +65,10 @@ export default function PromptsScreen() {
     setIsProcessing(true);
 
     try {
-      incrementUsage('prompt');
-
-      const promptMessage = `${selectedPrompt.systemPrompt}\n\n${userText}`;
+      const promptMessage = `${selectedPrompt.systemPrompt}\n\nUser input: ${userText}`;
+      
+      console.log('[Prompts] Sending prompt:', selectedPrompt.title);
+      console.log('[Prompts] Full message:', promptMessage);
       
       const response = await chat({
         provider: settings.provider,
@@ -66,6 +81,10 @@ export default function PromptsScreen() {
           },
         ],
       });
+      
+      console.log('[Prompts] Response received:', response.substring(0, 100));
+      
+      incrementUsage('prompt');
 
       Alert.alert(
         selectedPrompt.title,

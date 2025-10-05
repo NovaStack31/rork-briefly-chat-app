@@ -52,7 +52,14 @@ export default function ChatScreen() {
     if (!input.trim() || isLoading) return;
 
     if (!canUseFeature('chat')) {
-      setShowPaywall(true);
+      Alert.alert(
+        'Daily Limit Reached',
+        'You\'ve reached your daily limit of 10 messages. Upgrade to Pro for unlimited chat messages.',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'Upgrade', onPress: () => setShowPaywall(true) }
+        ]
+      );
       return;
     }
 
