@@ -1,0 +1,18 @@
+export default {
+  background: '#0A0E13',
+  backgroundGradientStart: '#0A0E13',
+  backgroundGradientEnd: '#0D1B1E',
+  card: '#141B20',
+  cardElevated: '#1A2128',
+  accent: '#22C55E',
+  accentDark: '#16A34A',
+  accentLight: '#4ADE80',
+  success: '#22C55E',
+  mutedText: '#8B95A5',
+  text: '#F1F5F9',
+  textSecondary: '#CBD5E1',
+  border: '#1E2832',
+  error: '#EF4444',
+  warning: '#F59E0B',
+  pro: '#22C55E',
+};

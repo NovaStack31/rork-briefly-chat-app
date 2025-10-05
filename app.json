@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "Briefly Chat App",
+    "slug": "briefly-chat-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "https://r2-pub.rork.com/generated-images/6a8a6bd2-45b3-46a2-a013-5e9ca219863b.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "https://r2-pub.rork.com/generated-images/8c21bf6f-c08e-471d-ae5b-4b1f6c8bfc0c.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#22C55E"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.rork.briefly-chat-app",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "usesIcloudStorage": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "https://r2-pub.rork.com/generated-images/fc2aba59-a7e3-46ac-a523-6abb8d59536b.png",
+        "backgroundColor": "#22C55E"
+      },
+      "package": "app.rork.briefly-chat-app",
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "web": {
+      "favicon": "https://r2-pub.rork.com/generated-images/13408c5b-d95a-417c-8eea-8d75e995cbf2.png"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://rork.com/"
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
+        }
+      ],
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
