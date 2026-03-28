@@ -142,7 +142,7 @@ export default function PaywallModal({ visible, onClose }: PaywallModalProps) {
                   >
                     {isMonthly && (
                       <View style={styles.saveBadgeTop}>
-                        <Text style={styles.saveTextTop}>Save 40%</Text>
+                        <Text style={styles.saveTextTop}>Save 70%</Text>
                       </View>
                     )}
                     <View style={styles.productContent}>
